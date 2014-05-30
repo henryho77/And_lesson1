@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
@@ -47,15 +49,14 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     
-	public void send(View view) {
- 		Log.d("debug", "click");
- 	}
 
     /**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
 
+    	private Button button; 
+    	
         public PlaceholderFragment() {
         }
 
@@ -63,6 +64,19 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            
+            button = (Button) rootView.findViewById(R.id.button1);
+            button.setOnClickListener(new OnClickListener(){
+
+				@Override
+ 				public void onClick(View v) 
+				{
+ 					Log.d("debug", "click2"); 					
+ 				}	
+            	
+            });
+            
+            
             return rootView;
         }
     }
