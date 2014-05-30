@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
@@ -55,7 +56,9 @@ public class MainActivity extends ActionBarActivity {
      */
     public static class PlaceholderFragment extends Fragment {
 
-    	private Button button; 
+    	private Button button;
+    	private EditText editText;
+    	
     	
         public PlaceholderFragment() {
         }
@@ -66,12 +69,16 @@ public class MainActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             
             button = (Button) rootView.findViewById(R.id.button1);
+            editText = (EditText) rootView.findViewById(R.id.editText1);
+            
+            
             button.setOnClickListener(new OnClickListener(){
 
 				@Override
  				public void onClick(View v) 
 				{
- 					Log.d("debug", "click2"); 					
+ 					Log.d("debug", "click2"); 	
+ 					Log.d("debug", "text: " + editText.getText().toString());
  				}	
             	
             });
