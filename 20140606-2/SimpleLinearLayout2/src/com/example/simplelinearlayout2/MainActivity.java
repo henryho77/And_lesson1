@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,15 +65,34 @@ public class MainActivity extends ActionBarActivity {
             //return rootView;
         	
  			LinearLayout ll = new LinearLayout(getActivity());
+			ll.setOrientation(LinearLayout.VERTICAL);
+			ll.setPadding(15, 15, 15, 15);
+ 			
  			EditText toEditText = new EditText(getActivity());
+ 			toEditText.setHint("To");
+ 			
  			EditText subjectEditText = new EditText(getActivity());
+ 			subjectEditText.setHint("Subject");
+ 			
  			EditText messageEditText = new EditText(getActivity());
+ 			messageEditText.setHint("Message");
+ 			messageEditText.setGravity(Gravity.TOP);
+ 			
  			Button send = new Button(getActivity());
+ 			send.setText("Send");
  			
  			ll.addView(toEditText);
  			ll.addView(subjectEditText);
  			ll.addView(messageEditText);
  			ll.addView(send);
+ 			
+			LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) messageEditText.getLayoutParams();
+ 			layoutParams.height = 0;
+ 			layoutParams.weight = 1;
+ 			
+ 			LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) send.getLayoutParams();
+ 			layoutParams2.width = LinearLayout.LayoutParams.WRAP_CONTENT;
+ 			layoutParams2.gravity = Gravity.RIGHT;
  
  			return ll;
         }
