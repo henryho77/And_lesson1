@@ -30,7 +30,13 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/editText1"
         android:layout_below="@+id/editText1" />
-
-
+    
+    <Button
+         android:id="@+id/button1"
+         android:layout_width="96dp"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/spinner2"
+         android:layout_below="@+id/spinner2"
+         android:text="Done" />
     
 </RelativeLayout>
